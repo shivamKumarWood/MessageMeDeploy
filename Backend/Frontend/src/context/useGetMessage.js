@@ -12,7 +12,7 @@ const useGetMessage = () => {
       if (selectedConversation && selectedConversation.id) {
         try {
           const res = await axios.get(
-            `http://localhost:4002/api/message/get/${selectedConversation.id}`,
+            `https://messagemedeploy.onrender.com/api/message/get/${selectedConversation.id}`,
             {
              params: {
       senderId,
