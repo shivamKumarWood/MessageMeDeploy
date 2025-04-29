@@ -6,6 +6,7 @@ import pg from 'pg';
 import bcrypt from 'bcryptjs';
 import {app,server} from './socketIO/server.js'; // Import the server instance from socketIO
 import { getReceiverSocketId,io } from './socketIO/server.js';
+import path from 'path';
 // import userRoute from './routes/user.route.js';
 dotenv.config();
 
@@ -26,7 +27,14 @@ app.use(express.static("public"));
 const port = process.env.PORT || 3001;
 db.connect();
 
-// app.use("/user", userRoute);
+// code for deployment
+if(process.env.NODE_ENV === 'production'){
+  const dirPath= path.resolve();
+  app.use(express.static("./Frontend/dist"));
+  app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(dirPath,"./Frontend/dist","index.html"));
+  })
+}
 
 /*Signup page*/
 app.post('/signup/user', async (req, res) => {
