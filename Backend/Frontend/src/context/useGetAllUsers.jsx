@@ -15,7 +15,7 @@ const useGetAllUsers = () => {
 
         console.log("📧 Logged in user email:", email);
 
-        const response = await fetch("http://localhost:4002/api/user/allusers", {
+        const response = await fetch("https://messagemedeploy.onrender.com/api/user/allusers", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
