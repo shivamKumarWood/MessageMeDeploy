@@ -33,7 +33,7 @@ function Signup() {
     };
     // console.log(userInfo);
     await axios
-      .post("http://localhost:4002/signup/user", userInfo)
+      .post("https://messagemedeploy.onrender.com/signup/user", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Signup successful");
