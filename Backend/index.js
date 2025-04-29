@@ -10,12 +10,18 @@ import path from 'path';
 // import userRoute from './routes/user.route.js';
 dotenv.config();
 
+// const db = new pg.Client({
+//   user: "postgres",
+//   host: "localhost",
+//   database: "ChatApp",
+//   password: "Shivam@55",
+//   port: 5432,
+// });
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "ChatApp",
-  password: "Shivam@55",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 export default db;
 // const app = express();
