@@ -10,7 +10,7 @@ const senderId = userData.user?.id;
     setLoading(true);
     try {
       const res = await axios.post(
-        `http://localhost:4002/api/message/send/${selectedConversation.id}`,
+        `https://messagemedeploy.onrender.com/api/message/send/${selectedConversation.id}`,
         { message ,senderId}
       );
       setMessage([...messages, res.data]);
